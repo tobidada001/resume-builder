@@ -1,86 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Resume Builder</title>
-
-    <style>
-        .main {
-            width: 80%;
-            height: 70vh;
-            margin: auto;
-            display: grid;
-        }
-
-        .top {
-            background: rgb(201, 171, 3);
-            height: 4em;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            grid-gap: 5px;
-            padding-top: 10px;
-            align-content: center;
-        }
-
-        .top a {
-            text-decoration: none;
-            padding: 7px;
-            color: #000;
-            height: 50px;
-            font-weight: bolder;
-            text-align: center;
-            
-        }
-
-        .top a:hover {
-            background: #000;
-            color: #fff;
-            height: 90px;
-        }
-    </style>
-
-</head>
-
-<body>
-    <div class="top">
-        <a href="#">
-            home
-        </a>
-        <a href="#">
-            home
-        </a>
-        <a href="#">
-            home
-        </a>
-        <a href="#">
-            home
-        </a>
-    </div>
-
-    <div class="main">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build Your Resume Today | Django Resume Builder</title>
+    <link rel="stylesheet" href="../static/custom.css" />
+    <link rel="stylesheet" href="../static/tailwind-all.min.css" />
+  </head>
 
 
-        <div class="bodydiv">
-            <div>
-                <h2>Welcome to our Powerful Resume Builder!</h2>
-            </div>
-            <div>
-                <h3>Are you ready to show off your skills to that Employer?</h3>
-            </div>
+  <body>
+    <nav class="h-24 bg-maroon"></nav>
 
-            <div>
-                <a href="#">
-                    <button>Create My Resume </button>
-                </a> or
-                <a href="#">
-                    <button>Show my Resumes</button>
-                </a>
-            </div>
+    <main class="main">
+      <section class="hero-section bg-blue-300 h-screen bg-transparent pt-12" style="background-image: url(../static/images/balloons_city_girl_mood_smile_beautiful_color_happy.jpg); background-attachment: fixed; background-size: cover; background-repeat: no-repeat;">
+        <div class="hero-text  w-9/12 m-auto flex-col align-middle justify-center">
+          <h2 class="text-4xl font-extrabold text-center">Welcome to our Powerful Resume Builder!</h2>
+
+          <h2 class="text-3xl font-bold text-center">Let's help you fire up the hiring process with our Powerful Resume Builder!</h2>
+        
+          <h2 class="text-2xl font-semibold">Are you ready to show off your skills to that Employer?</h2>
+       
+
+          
+        <div class="hero-btns ">
+            <a href="#">
+              <button>Create My Resume</button>
+            </a>
+            or
+            <a href="#">
+              <button>Show my Resumes</button>
+            </a>
+          </div>
+       
         </div>
-    </div>
-</body>
 
+
+      </section>
+
+      <section class="bg-green-500">
+    
+      </section>
+
+    </main>
+  </body>
 </html>

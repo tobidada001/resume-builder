@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Details</title>
+    <link rel="stylesheet" href="../static/custom.css" />
+    <link rel="stylesheet" href="../static/tailwind-all.min.css" />
+  </head>
+  <body>
+    <nav class="h-24 bg-maroon"></nav>
+
+    <div class="progress-container">
+      <div class="progress-bar h-2 bg-blue-700 w-0" id="myBar"></div>
+    </div>
+
+    <main class="bg-beige-warm h-screen p-10">
+      <div class="h-full bg-white rounded overflow-y-auto">
+        <form action="" class="form" method="post">
+          {% csrf_token %}
+
+          <!-- ***** Contact Information Section -->
+          <div class="form-section hidden">
+            <h1 class="text-5xl font-bold pt-6 text-center">
+              Contact Information
+            </h1>
+            <p class="font-semibold text-gray-500 text-lg text-center mb-12">
+              Let's have a basic info about you.
+            </p>
+
+            <div
+              class="fields-wrapper flex flex-wrap contact-info mt-8"
+              style="row-gap: 1em"
+            >
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="First Name"
+                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded"
+                />
+              </div>
+
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                <input
+                  type="text"
+                  name="lastname"
+                  placeholder="Last Name"
+                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded"
+                />
+              </div>
+
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded"
+                />
+              </div>
+
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                <input
+                  type="tel"
+                  name="phonenumber"
+                  placeholder="Phone Number"
+                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded"
+                />
+              </div>
+
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                <input
+                  type="text"
+                  name="res_address"
+                  placeholder="Residential Address"
+                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded"
+                />
+              </div>
+            </div>
+
+            <div class="mt-12 flex md:w-4/12 mb-8 w-7/12 m-auto">
+              <a
+                class="bg-blue-800 text-white flex-grow p-6 text-center text-lg font-bold rounded-full next-button"
+                >Next</a
+              >
+            </div>
+          </div>
+          <!-- *********** End of contact information section -->
+
+          <!-- ***** Profile Summary Section -->
+          <div class="form-section hidden">
+            <h1 class="text-5xl font-bold py-6 text-center">Profile Summary</h1>
+
+            <p class="font-semibold text-gray-500 text-lg text-center mb-12">
+              Describe who you are in a few words.
+            </p>
+
+            <div
+              class="fields-wrapper mt-8 flex flex-wrap contact-info"
+              style="row-gap: 1em"
+            >
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                <textarea
+                  name="aboutyou"
+                  placeholder="Tell us about yourself in less than 300 words..."
+                  id=""
+                  class="h-40 p-5 border-2 border-red-400 w-full rounded"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="mt-12 flex md:w-4/12 mb-4 w-7/12 m-auto justify-center">
+              <a
+                class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button"
+                >Previous</a
+              >
+              &nbsp;&nbsp;&nbsp;
+              <a
+                class="bg-blue-800 text-white flex-grow p-6 text-center text-lg font-bold rounded-full next-button"
+                >Next</a
+              >
+            </div>
+          </div>
+
+          <!-- *********** End of Profile Summary section -->
+
+          <!-- ***** Work  Experience Section -->
+          <div class="form-section hidden">
+            <h1 class="text-5xl font-bold py-6 text-center">Work Experience</h1>
+            <p class="font-semibold text-gray-500 text-lg text-center mb-12">
+              Tell your employer of your work experiences.
+            </p>
+
+            <div
+              class="fields-wrapper mt-8 flex flex-wrap contact-info"
+              style="row-gap: 1em"
+            >
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                <input
+                  type="text"
+                  name="job_title"
+                  placeholder="Job Title/Role"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                />
+              </div>
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                <input
+                  type="text"
+                  name="job_organization"
+                  placeholder="Organization/Company name"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                />
+              </div>
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                <textarea
+                  name="job_achievement"
+                  placeholder="Tell us your achievements in the organization"
+                  cols="10"
+                  class="h-32 p-5 border-2 border-red-400 w-full rounded"
+                ></textarea>
+              </div>
+
+              <div
+                class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto flex flex-wrap"
+              >
+                <div class="field-div lg:w-5/12 md:w-10/12 flex-1">
+                  From:
+                  <input
+                    name="job_from"
+                    type="date"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  />
+                </div>
+
+                <div class="field-div lg:w-5/12 md:w-10/12 flex-1">
+                  To:
+                  <input
+                    type="date"
+                    name="job_to"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-12 flex md:w-4/12 w-7/12 mb-5 m-auto justify-center">
+              <a
+                class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button"
+                >Previous</a
+              >
+              &nbsp;&nbsp;&nbsp;
+              <a
+                class="bg-blue-800 text-white flex-grow p-6 text-center text-lg font-bold rounded-full next-button"
+                >Next</a
+              >
+            </div>
+          </div>
+          <!-- *********** End of Work Experience section -->
+
+          <!-- ***** Educational History Section -->
+          <div class="form-section hidden">
+            <h1 class="text-5xl font-bold py-6 text-center">
+              Educational History
+            </h1>
+            <p class="font-semibold text-gray-500 text-lg text-center mb-12">
+              Tell us about your educational background.
+            </p>
+
+            <div class="wrapper-div">
+            <div
+              class="fields-wrapper mt-8 flex flex-wrap contact-info"
+              style="row-gap: 1em"
+            >
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                <select
+                  name="degree"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  id=""
+                >
+                  <option value="opt">OND</option>
+                  <option value="opt">HND</option>
+                  <option value="opt">BSc.</option>
+                  <option value="opt">MSc.</option>
+                  <option value="opt">MSc.</option>
+                  <option value="opt">MSc.</option>
+                </select>
+                <input
+                  type="text"
+                  name="other_degree"
+                  placeholder="Other Degree Obtained"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                />
+              </div>
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                <input
+                  type="text"
+                  name="institute_name"
+                  placeholder="Name of Institution"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                />
+              </div>
+
+              <div
+                class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto flex flex-wrap"
+              >
+                <div class="field-div lg:w-5/12 md:w-10/12 flex-1">
+                  From:
+                  <input
+                    type="date"
+                    name="institute_from"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  />
+                </div>
+
+                <div class="field-div lg:w-5/12 md:w-10/12 flex-1">
+                  To:
+                  <input
+                    type="date"
+                    name="institute_to"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  />
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+            <div class="mt-12 flex md:w-4/12 w-7/12 m-auto mb-5 justify-center">
+              <a
+                class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button"
+                >Previous</a
+              >
+              &nbsp;&nbsp;&nbsp;
+              <a
+                class="bg-blue-800 text-white flex-grow p-6 text-center text-lg font-bold rounded-full next-button"
+                >Next</a
+              >
+            </div>
+          </div>
+          <!-- *********** End of Educational History section -->
+
+          <!-- ***** projects Section -->
+          <div class="form-section hidden">
+            <h1 class="text-5xl font-bold py-6 text-center">Projects</h1>
+            <p class="font-semibold text-gray-500 text-lg text-center mb-12">
+              Do you have projects to showcase? Tell us.
+            </p>
+
+            <div class="wrapper">
+            <div id="wrapper-for-projects">
+              <div
+                class="fields-wrapper mt-8 flex flex-wrap contact-info"
+                style="row-gap: 1em"
+                id="projectsdiv"
+              >
+                <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                  <input
+                    type="text"
+                    name="proj_title"
+                    placeholder="Project title"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded proj_title"
+                  />
+                </div>
+                <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                  <input
+                    type="text"
+                    name="proj_role"
+                    placeholder="Your role"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded proj_role"
+                  />
+                </div>
+                <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                  <textarea
+                    name="proj_desc"
+                    placeholder="Describe project"
+                    cols="10"
+                    class="h-32 p-5 border-2 border-red-400 w-full rounded proj_desc"
+                  ></textarea>
+                </div>
+
+                <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                  <input
+                    type="text"
+                    name="proj_duration"
+                    placeholder="E.g. 6 months"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded proj_dur"
+                  />
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+            <div class="mt-12 md:w-1/12 w-7/12 mb-5 text-center m-auto">
+              <button
+                class="bg-orange-700 text-white font-semibold h-full w-full p-4 rounded-lg  btn-add-new"
+                id="add_new_proj_btn"  name="buttonproject"
+              >
+                Add New
+              </button>
+            </div>
+
+            <div class="mt-12 flex md:w-4/12 w-7/12 mb-5 m-auto justify-center">
+              <a
+                class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button"
+                >Previous</a
+              >
+              &nbsp;&nbsp;&nbsp;
+              <a
+                class="bg-blue-800 text-white flex-grow p-6 text-center text-lg font-bold rounded-full next-button"
+                >Next</a
+              >
+            </div>
+          </div>
+          <!-- *********** End of projects section -->
+
+          <!-- ***** References Section -->
+          <div class="form-section hidden">
+            <h1 class="text-5xl font-bold py-6 text-center">References</h1>
+            <p class="font-semibold text-gray-500 text-lg text-center mb-12">
+              Any references Tell us.
+            </p>
+
+            <div id="references-container">
+              <div
+                class="fields-wrapper mt-8 flex flex-wrap contact-info"
+                style="row-gap: 1em"
+              >
+                <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                  <input
+                    type="text"
+                    name="ref_name"
+                    placeholder="Name"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  />
+                </div>
+                <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                  <input
+                    type="text"
+                    name="ref_contact"
+                    placeholder="Contact info"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-12 flex md:w-4/12 w-7/12 m-auto justify-center">
+              <a
+                class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button"
+                >Previous</a
+              >
+              &nbsp;&nbsp;&nbsp;
+              <a
+                class="bg-blue-800 text-white flex-grow p-6 text-center text-lg font-bold rounded-full next-button"
+                >Next</a
+              >
+            </div>
+          </div>
+          <!-- *********** End of References section -->
+
+          <!-- ***** Languages Section -->
+          <div class="form-section hidden">
+            <h1 class="text-5xl font-bold py-6 text-center">Language(s)</h1>
+            <p class="font-semibold text-gray-500 text-lg text-center mb-12">
+              What languages are you fluent in?
+            </p>
+
+            <div class="wrapper-div">
+              <div
+                class="fields-wrapper mt-8 flex flex-wrap contact-info"
+                style="row-gap: 1em">
+                <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                  Language:
+                  <select
+                    name="language"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                    id=""
+                  >
+                    <option value="Coding">English</option>
+                    <option value="Coding">French</option>
+                    <option value="Coding">Igbo</option>
+                    <option value="Coding">Yoruba</option>
+                  </select>
+                </div>
+
+                <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                  Fluency level:
+                  <select
+                    name="language_level"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                    id=""
+                  >
+                    <option value="Coding">Excellent</option>
+                    <option value="Coding">Very fluent</option>
+                    <option value="Coding">Fluent</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="mt-12 flex md:w-4/12 w-7/12 m-auto justify-center">
+              <a
+                class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button"
+                >Previous</a
+              >
+              &nbsp;&nbsp;&nbsp;
+              <a
+                class="bg-blue-800 text-white flex-grow p-6 text-center text-lg font-bold rounded-full next-button"
+                >Next</a
+              >
+            </div>
+          </div>
+          <!-- *********** End of languages section -->
+
+          <!-- ***** Add your skills Section -->
+          <div class="form-section">
+            <h1 class="text-5xl font-bold py-6 text-center">Add your Skills</h1>
+            <p class="font-semibold text-gray-500 text-lg text-center mb-12">
+              What skills do you have to offer?
+            </p>
+
+            <div
+              class="fields-wrapper mt-8 flex flex-wrap contact-info"
+              style="row-gap: 1em"
+            >
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+                Skills:
+                <select
+                  name="skill"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  id=""
+                >
+                  <option value="Coding">Coding</option>
+                  <option value="Coding">Coding</option>
+                  <option value="Coding">Coding</option>
+                  <option value="Coding">Coding</option>
+                  <option value="Coding">Coding</option>
+                  <option value="Coding">Coding</option>
+                  <option value="Coding">Coding</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mt-12 flex md:w-4/12 w-7/12 m-auto mb-5">
+              <a
+                class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button"
+                >Previous</a
+              >
+              &nbsp;&nbsp;&nbsp;
+              <input
+                type="submit"
+                value="Create Resume"
+                class="bg-blue-800 text-white flex-grow p-6 text-center text-lg font-bold rounded-full"
+              />
+            </div>
+          </div>
+          <!-- *********** End of Add your skills section -->
+        </form>
+      </div>
+    </main>
+
+    <script src="../static/js/custom.js"></script>
+
+    <script>
+     
+     var i = 0
+      var addnewprojbtns = document.querySelectorAll(".btn-add-new");
+
+      for (const addnewprojbtn of addnewprojbtns) {
+
+      addnewprojbtn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        var newInnerHtml = e.target.parentElement.parentElement.children[2].children[0].innerHTML
+        var newNode = document.createElement("div");
+
+        // var hrnode = document.createElement('hr')
+        var wrapperforprojects =  e.target.parentElement.parentElement.children[2].children[0]
+        console.log(e.target.parentElement.parentElement.children[2].children[0])
+
+        // hrnode.setAttribute('class', 'mt-10')
+        
+      //   var  d = addnewprojbtn.parentElement.parentElement.children[2].children[0].children[0].querySelectorAll('input')
+        
+      // var d =  wrapperforprojects.children[0].querySelectorAll('input')
+        // i = Number(i) + 1
+
+      // for (const iterator of d) {
+      //   iterator.setAttribute('name', iterator.getAttribute('name') + Number(i) )
+      //   console.log(iterator)
+      // }
+
+
+      // wrapperforprojects.appendChild(hrnode)
+        newNode.innerHTML = newInnerHtml
+        wrapperforprojects.appendChild(newNode);
+        
+    });
+
+      };
+    </script>
+  </body>
+</html>
