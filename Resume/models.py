@@ -21,6 +21,7 @@ class AdditionalProfile(models.Model):
     profile_summary = models.TextField( max_length=500)
     profile_owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     uniqueid = models.UUIDField(unique= True, blank=True, null=True)
+    templateid = models.IntegerField(max_length=4, blank=True, null=True)
 
     def save(self, *args, **kwargs):
        self.uniqueid = uuid.uuid4()
@@ -69,3 +70,7 @@ class Language(models.Model):
 class Skill(models.Model):
     skill = models.CharField( max_length=50)
     skill_owner = models.ForeignKey(AdditionalProfile, on_delete=models.CASCADE)
+
+
+class ResumeTemplates(models.Model):
+    image = models.ImageField(upload_to='resume_uploads/')

@@ -17,6 +17,24 @@ def index(request):
     return render(request, 'index.html')
 
 
+def choose_template(request, profile):
+    profile = get_object_or_404(AdditionalProfile, uniqueid = profile)
+    templates= ResumeTemplates.objects.all()
+    return render(request, 'choose-template.html', {'templates': templates, 'profile': profile})
+
+
+
+def assigntemplate(request, profile, tid):
+    profile = get_object_or_404(AdditionalProfile, uniqueid = profile)
+    if tid:
+        profile.templateid = tid
+        profile.save()
+        return redirect(reverse('completed', kwargs={'profile': profile.uniqueid}))
+    else:
+        return redirect('/')
+
+
+
 def signupview(request):
     if request.user.is_authenticated:
         return redirect(request.GET.get('next')) if request.GET.get('next') else redirect('/')
@@ -132,8 +150,8 @@ def create_new(request):
             if not jobtitle and not degree and not proj_title and not ref_name and not skill and not lang and not degree:
                 break
 
-        to_profile_url = reverse('completed', kwargs={'profile': profile.uniqueid})
-        return redirect(to_profile_url)
+        choose_template_url = reverse('choose_template', kwargs={'profile': profile.uniqueid})
+        return redirect(choose_template_url)
     
 
     return render(request, 'add_details.html')
@@ -144,8 +162,12 @@ def completed(request, profile):
 
 def seeprofile(request, profile):
     profile = get_object_or_404(AdditionalProfile, uniqueid = profile)
-    return render(request, 'resume1.html', {'profile': profile})
-
+    if profile.templateid > 0:
+        print('This is working')
+        return render(request, f'resume{profile.templateid}.html', {'profile': profile})
+    else:
+        print('This s not working')
+        return render(request, f'resume1.html', {'profile': profile})
 
 def downloadpdf(request, profile):
 

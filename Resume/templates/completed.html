@@ -16,6 +16,11 @@
 
     <div class=" h-screen bg-beige-warm mt-12 text-center font-bold p-10 text-2xl">
 
+      <h1 class="text-5xl w-5/12 m-auto font-semibold">Congratulations, {{request.user.first_name}}. Your Resume has been generated successfully... </h1>
+
+      <br><br><br>
+
+
     <a href="{% url 'resumepath' profile.uniqueid %}" class="bg-beige rounded w-5/12 inline-block p-12 text-center">View Resume</a>
 
     <a href="{% url 'download' profile.uniqueid %}" class="bg-maroon text-white rounded w-5/12 inline-block p-12">Download</a>
