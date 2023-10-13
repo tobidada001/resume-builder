@@ -1,28 +1,16 @@
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build Your Resume Today | Django Resume Builder</title>
-    <link rel="stylesheet" href="../static/custom.css">
-    <link rel="stylesheet" href="../static/tailwind-all.min.css">
-  </head>
-
-  <body>
-
-    <nav class="h-24 bg-maroon text-white text-3xl"><h1 style="vertical-align: middle;">Sign up now </h1></nav>
+{% extends 'parent.html' %}
+    
+    {% block navname %}Sign Up Now{% endblock navname %}
+    {% block content %}
 
     <div class="w-10/12 m-auto mt-12" >
 
         <form action="" method="POST" class="border-2 p-6 border-green-600">
             {% csrf_token %}
-
             
             {% for field in form %}
-                
-            <p class="">{{field.label}}</p>
-            <div class="h-16 border-blue-600 flex">
-               {{field}}
-            </div>
-    
+            <p class="">{{field.label}}</p> 
+            <div class="h-16 border-blue-600 flex"> {{field}} </div>
             {% endfor %}
                 
            
@@ -33,12 +21,6 @@
         </div>
         </form>
 
-
-
     </div>
 
-   
-
-    
-
-    </body></html>
+    {% endblock content %}

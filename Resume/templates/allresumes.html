@@ -1,28 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Build Your Resume Today | Django Resume Builder</title>
-    <link rel="stylesheet" href="../static/custom.css" />
-    <link rel="stylesheet" href="../static/tailwind-all.min.css" />
-  </head>
-
-
-  <body>
-    <nav class="h-24 bg-maroon text-white text-3xl px-4"><h1 style="vertical-align: middle;">All Resumes </h1>
-    <p class="text-base">We've listed all your resumes below, {{request.user.first_name}}</p></nav>
+{% extends 'parent.html' %}
+      
+      {% block navname %}
+      All Resumes 
+      <p class="text-base"> We've listed all your resumes below, {{request.user.first_name}}</p>
+      {% endblock navname %}
+        
+      {% block content %}
 
     <div class="bg-beige-warm h-full flex justify-center" style="flex-flow: wrap;">
 
       {% for profile in request.user.additionalprofile_set.all %}
-        
       <div class=" lg:w-3/12 md:w-4/12 w-8/12  border-2 maroon m-12 p-10 text-center shadow-2xl rounded-lg">
 
       <a href="{% url 'completed' profile.uniqueid %}" >
         <h1 class="text-2xl font-bold">Role {{prof}}</h1>
-        <p class="mt-3">{{profile.profile_summary | truncatewords:20}}</p>
-      </a>
+        <p class="mt-3">{{profile.profile_summary | truncatewords:20}}</p></a>
       </div>
 
       {% empty %}
@@ -31,11 +23,6 @@
       <a href="{% url 'create_new' %}" class="px-20 mt-16 py-6 text-2xl font-medium bg-maroon text-white rounded-lg">Add New Resume </a>
       </div>
       {% endfor %}
-      
-     
 
     </div>
-
-
-  </body>
-</html>
+    {% endblock content %}
