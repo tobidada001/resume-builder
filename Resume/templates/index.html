@@ -10,26 +10,28 @@
 
 
   <body>
-    <nav class="h-24 bg-maroon"></nav>
+    <nav class="h-24 bg-maroon text-white text-3xl"><h1 style="vertical-align: middle;">Django Resume App </h1></nav>
 
-    <main class="main">
-      <section class="hero-section bg-blue-300 h-screen bg-transparent pt-12" style="background-image: url(../static/images/balloons_city_girl_mood_smile_beautiful_color_happy.jpg); background-attachment: fixed; background-size: cover; background-repeat: no-repeat;">
+    <main class="main text-white" style="background-image: url(../static/images/balloons_city_girl_mood_smile_beautiful_color_happy.jpg); background-attachment: fixed; background-size: cover; background-repeat: no-repeat;">
+      <section class="hero-section bg-blue-300 h-screen bg-transparent pt-12" style="background-color: rgba(0,0,0, 0.8);">
+        
         <div class="hero-text  w-9/12 m-auto flex-col align-middle justify-center">
           <h2 class="text-4xl font-extrabold text-center">Welcome to our Powerful Resume Builder!</h2>
 
           <h2 class="text-3xl font-bold text-center">Let's help you fire up the hiring process with our Powerful Resume Builder!</h2>
         
-          <h2 class="text-2xl font-semibold">Are you ready to show off your skills to that Employer?</h2>
+          <h2 class="text-2xl font-semibold text-center">Are you ready to show off your skills to that Employer?</h2>
        
 
-          
-        <div class="hero-btns ">
-            <a href="#">
-              <button>Create My Resume</button>
+          <br>
+          <br><br>
+        <div class="hero-btns text-center">
+            <a href="{% url 'create_new' %}" >
+              <button class="inline-block h-24 w-5/12 bg-indigo-500 rounded-lg text-3xl hover:bg-indigo-700">Create My Resume</button>
             </a>
-            or
-            <a href="#">
-              <button>Show my Resumes</button>
+           
+            <a href="{% url 'all_resumes' %}" >
+              <button class='inline-block h-24 w-5/12 bg-red-500 rounded-lg text-3xl hover:bg-red-700'>Show my Resumes</button>
             </a>
           </div>
        

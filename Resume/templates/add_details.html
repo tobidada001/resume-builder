@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../static/tailwind-all.min.css" />
   </head>
   <body>
-    <nav class="h-24 bg-maroon"></nav>
+    <nav class="h-24 bg-maroon text-2xl font-bold text-white">{{request.user.first_name}} {{request.user.last_name}}</nav>
 
     <div class="progress-container">
       <div class="progress-bar h-2 bg-blue-700 w-0" id="myBar"></div>
@@ -28,16 +28,18 @@
               Let's have a basic info about you.
             </p>
 
+            <div class="wrapper">
+              <div class="wrapper-for-projects">
             <div
               class="fields-wrapper flex flex-wrap contact-info mt-8"
               style="row-gap: 1em"
             >
-              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto ">
                 <input
                   type="text"
                   name="firstname"
                   placeholder="First Name"
-                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded"
+                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded input"  data-inputname="firstname"
                 />
               </div>
 
@@ -46,7 +48,7 @@
                   type="text"
                   name="lastname"
                   placeholder="Last Name"
-                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded"
+                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded input"  data-inputname="lastname"
                 />
               </div>
 
@@ -55,7 +57,7 @@
                   type="email"
                   name="email"
                   placeholder="Email Address"
-                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded"
+                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded input"  data-inputname="email"
                 />
               </div>
 
@@ -64,7 +66,7 @@
                   type="tel"
                   name="phonenumber"
                   placeholder="Phone Number"
-                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded"
+                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded input"  data-inputname="phonenumber"
                 />
               </div>
 
@@ -73,10 +75,23 @@
                   type="text"
                   name="res_address"
                   placeholder="Residential Address"
-                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded"
+                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded input"  data-inputname="res_address"
+                />
+              </div>
+              
+              <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto hidden">
+                <input
+                  type="text"
+                  name="res_address"
+                  placeholder="Residential Address"
+                  class="h-16 px-5 border-2 border-red-400 w-11/12 rounded input"  data-inputname="res_address"
                 />
               </div>
             </div>
+
+            </div>
+            </div>
+
 
             <div class="mt-12 flex md:w-4/12 mb-8 w-7/12 m-auto">
               <a
@@ -95,6 +110,8 @@
               Describe who you are in a few words.
             </p>
 
+            <div class="wrapper">
+              <div class="wrapper-for-projects">
             <div
               class="fields-wrapper mt-8 flex flex-wrap contact-info"
               style="row-gap: 1em"
@@ -102,14 +119,18 @@
               <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                 <textarea
                   name="aboutyou"
-                  placeholder="Tell us about yourself in less than 300 words..."
+                  placeholder="Tell us about yourself in less than 300 words..." 
                   id=""
-                  class="h-40 p-5 border-2 border-red-400 w-full rounded"
+                  class="h-40 p-5 border-2 border-red-400 w-full rounded input"
                   cols="30"
                   rows="10"
                 ></textarea>
               </div>
             </div>
+
+            </div>
+            </div>
+
 
             <div class="mt-12 flex md:w-4/12 mb-4 w-7/12 m-auto justify-center">
               <a
@@ -133,6 +154,9 @@
               Tell your employer of your work experiences.
             </p>
 
+            <div class="wrapper">
+              <div class="wrapper-for-projects">
+
             <div
               class="fields-wrapper mt-8 flex flex-wrap contact-info"
               style="row-gap: 1em"
@@ -140,50 +164,57 @@
               <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                 <input
                   type="text"
-                  name="job_title"
+                  name="job_title1"
                   placeholder="Job Title/Role"
-                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded input" data-inputname="job_title"
                 />
               </div>
               <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                 <input
                   type="text"
-                  name="job_organization"
-                  placeholder="Organization/Company name"
-                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  name="job_organization1"
+                  placeholder="Organization/Company name" data-inputname="job_organization"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded input"
                 />
               </div>
               <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                 <textarea
-                  name="job_achievement"
+                  name="job_achievement1" data-inputname="job_achievement"
                   placeholder="Tell us your achievements in the organization"
                   cols="10"
-                  class="h-32 p-5 border-2 border-red-400 w-full rounded"
+                  class="h-32 p-5 border-2 border-red-400 w-full rounded input"
                 ></textarea>
               </div>
 
-              <div
-                class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto flex flex-wrap"
-              >
+              <!-- <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto"> -->
+
+              <!-- <div class="ABBBullla field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto flex flex-wrap"> -->
+                
                 <div class="field-div lg:w-5/12 md:w-10/12 flex-1">
-                  From:
-                  <input
-                    name="job_from"
-                    type="date"
-                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
-                  />
+                  <input name="job_from1" type="date" data-inputname="job_from" class="h-16 px-5 border-2 border-red-400 w-full rounded input" />
                 </div>
 
                 <div class="field-div lg:w-5/12 md:w-10/12 flex-1">
-                  To:
-                  <input
-                    type="date"
-                    name="job_to"
-                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
-                  />
+                  <input name="job_to1" type="date" data-inputname="job_to" class="h-16 px-5 border-2 border-red-400 w-full rounded input" />
                 </div>
-              </div>
+            <!-- </div> -->
+
+              <!-- </div> -->
             </div>
+
+            </div>
+            </div>
+
+
+            <div class="mt-12 md:w-1/12 w-7/12 mb-5 text-center m-auto">
+              <button
+              class="bg-orange-700 text-white font-semibold h-full w-full p-4 rounded-lg  btn-add-new" 
+              id="add_new_proj_btn"  name="buttonproject" 
+            >
+              Add New
+            </button>
+            </div>
+
 
             <div class="mt-12 flex md:w-4/12 w-7/12 mb-5 m-auto justify-center">
               <a
@@ -208,6 +239,9 @@
               Tell us about your educational background.
             </p>
 
+            <div class="wrapper">
+              <div class="wrapper-for-projects">
+
             <div class="wrapper-div">
             <div
               class="fields-wrapper mt-8 flex flex-wrap contact-info"
@@ -215,8 +249,8 @@
             >
               <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                 <select
-                  name="degree"
-                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  name="degree1" data-inputname="degree"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded input"
                   id=""
                 >
                   <option value="opt">OND</option>
@@ -228,17 +262,17 @@
                 </select>
                 <input
                   type="text"
-                  name="other_degree"
+                  name="other_degree1" data-inputname="other_degree"
                   placeholder="Other Degree Obtained"
-                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded input"
                 />
               </div>
               <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                 <input
                   type="text"
-                  name="institute_name"
+                  name="institute_name1" data-inputname="institute_name"
                   placeholder="Name of Institution"
-                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded input"
                 />
               </div>
 
@@ -249,8 +283,8 @@
                   From:
                   <input
                     type="date"
-                    name="institute_from"
-                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                    name="institute_from1" data-inputname="institute_from"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded input"
                   />
                 </div>
 
@@ -258,8 +292,8 @@
                   To:
                   <input
                     type="date"
-                    name="institute_to"
-                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                    name="institute_to1" data-inputname="institute_to"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded input"
                   />
                 </div>
               </div>
@@ -267,12 +301,23 @@
 
           </div>
 
+          </div>
+          </div>
+
+
+          <div class="mt-12 md:w-1/12 w-7/12 mb-5 text-center m-auto">
+            <button
+              class="bg-orange-700 text-white font-semibold h-full w-full p-4 rounded-lg  btn-add-new" data-prod="appe" data-brod="ball"
+              id="add_new_proj_btn"  name="buttonproject"
+            >
+              Add New
+            </button>
+          </div>
+
 
             <div class="mt-12 flex md:w-4/12 w-7/12 m-auto mb-5 justify-center">
               <a
-                class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button"
-                >Previous</a
-              >
+                class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button">Previous</a>
               &nbsp;&nbsp;&nbsp;
               <a
                 class="bg-blue-800 text-white flex-grow p-6 text-center text-lg font-bold rounded-full next-button"
@@ -290,7 +335,7 @@
             </p>
 
             <div class="wrapper">
-            <div id="wrapper-for-projects">
+            <div class="wrapper-for-projects">
               <div
                 class="fields-wrapper mt-8 flex flex-wrap contact-info"
                 style="row-gap: 1em"
@@ -299,34 +344,34 @@
                 <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                   <input
                     type="text"
-                    name="proj_title"
+                    name="proj_title1" data-inputname="proj_title"
                     placeholder="Project title"
-                    class="h-16 px-5 border-2 border-red-400 w-full rounded proj_title"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded input proj_title"
                   />
                 </div>
                 <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                   <input
                     type="text"
-                    name="proj_role"
+                    name="proj_role1" data-inputname="proj_role"
                     placeholder="Your role"
-                    class="h-16 px-5 border-2 border-red-400 w-full rounded proj_role"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded input proj_role"
                   />
                 </div>
                 <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                   <textarea
-                    name="proj_desc"
+                    name="proj_desc1" data-inputname="proj_desc"
                     placeholder="Describe project"
                     cols="10"
-                    class="h-32 p-5 border-2 border-red-400 w-full rounded proj_desc"
+                    class="h-32 p-5 border-2 border-red-400 w-full rounded input proj_desc"
                   ></textarea>
                 </div>
 
                 <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                   <input
                     type="text"
-                    name="proj_duration"
+                    name="proj_duration1" data-inputname="proj_duration"
                     placeholder="E.g. 6 months"
-                    class="h-16 px-5 border-2 border-red-400 w-full rounded proj_dur"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded input proj_dur"
                   />
                 </div>
               </div>
@@ -336,7 +381,7 @@
 
             <div class="mt-12 md:w-1/12 w-7/12 mb-5 text-center m-auto">
               <button
-                class="bg-orange-700 text-white font-semibold h-full w-full p-4 rounded-lg  btn-add-new"
+                class="bg-orange-700 text-white font-semibold h-full w-full p-4 rounded-lg  btn-add-new" data-prod="appe" data-brod="ball"
                 id="add_new_proj_btn"  name="buttonproject"
               >
                 Add New
@@ -364,7 +409,9 @@
               Any references Tell us.
             </p>
 
-            <div id="references-container">
+
+            <div class="wrapper">
+              <div class="wrapper-for-projects">
               <div
                 class="fields-wrapper mt-8 flex flex-wrap contact-info"
                 style="row-gap: 1em"
@@ -372,25 +419,37 @@
                 <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                   <input
                     type="text"
-                    name="ref_name"
+                    name="ref_name1" data-inputname="ref_name"
                     placeholder="Name"
-                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded input"
                   />
                 </div>
                 <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                   <input
                     type="text"
-                    name="ref_contact"
+                    name="ref_contact1" data-inputname="ref_contact"
                     placeholder="Contact info"
-                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded input"
                   />
                 </div>
               </div>
             </div>
+            </div>
+
+
+            <div class="mt-12 md:w-1/12 w-7/12 mb-5 text-center m-auto">
+              <button
+                class="bg-orange-700 text-white font-semibold h-full w-full p-4 rounded-lg  btn-add-new" data-prod="appe" data-brod="ball"
+                id="add_new_proj_btn"  name="buttonproject"
+              >
+                Add New
+              </button>
+            </div>
+
 
             <div class="mt-12 flex md:w-4/12 w-7/12 m-auto justify-center">
               <a
-                class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button"
+                class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button" 
                 >Previous</a
               >
               &nbsp;&nbsp;&nbsp;
@@ -409,15 +468,16 @@
               What languages are you fluent in?
             </p>
 
-            <div class="wrapper-div">
+            <div class="wrapper">
+              <div class="wrapper-for-projects">
               <div
                 class="fields-wrapper mt-8 flex flex-wrap contact-info"
                 style="row-gap: 1em">
                 <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                   Language:
                   <select
-                    name="language"
-                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                    name="language1" data-inputname="language"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded input"
                     id=""
                   >
                     <option value="Coding">English</option>
@@ -430,8 +490,8 @@
                 <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                   Fluency level:
                   <select
-                    name="language_level"
-                    class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                    name="language_level1" data-inputname="language_level"
+                    class="h-16 px-5 border-2 border-red-400 w-full rounded input"
                     id=""
                   >
                     <option value="Coding">Excellent</option>
@@ -441,6 +501,20 @@
                 </div>
               </div>
             </div>
+
+            </div>
+
+
+            <div class="mt-12 md:w-1/12 w-7/12 mb-5 text-center m-auto">
+              <button
+                class="bg-orange-700 text-white font-semibold h-full w-full p-4 rounded-lg  btn-add-new"
+                id="add_new_proj_btn"  name="buttonproject"
+              >
+                Add New
+              </button>
+            </div>
+
+
             <div class="mt-12 flex md:w-4/12 w-7/12 m-auto justify-center">
               <a
                 class="bg-beige-warm flex-grow p-6 text-center text-lg font-bold rounded-full prev-button"
@@ -462,6 +536,9 @@
               What skills do you have to offer?
             </p>
 
+            <div class="wrapper">
+              <div class="wrapper-for-projects">
+
             <div
               class="fields-wrapper mt-8 flex flex-wrap contact-info"
               style="row-gap: 1em"
@@ -469,8 +546,8 @@
               <div class="field-div lg:w-5/12 md:w-10/12 w-11/12 m-auto">
                 Skills:
                 <select
-                  name="skill"
-                  class="h-16 px-5 border-2 border-red-400 w-full rounded"
+                  name="skill1" data-inputname="skill"
+                  class="h-16 px-5 border-2 border-red-400 w-full rounded input"
                   id=""
                 >
                   <option value="Coding">Coding</option>
@@ -482,6 +559,18 @@
                   <option value="Coding">Coding</option>
                 </select>
               </div>
+            </div>
+            </div>
+            </div>
+
+
+            <div class="mt-12 md:w-1/12 w-7/12 mb-5 text-center m-auto">
+              <button
+                class="bg-orange-700 text-white font-semibold h-full w-full p-4 rounded-lg  btn-add-new"
+                id="add_new_proj_btn"  name="buttonproject"
+              >
+                Add New
+              </button>
             </div>
 
             <div class="mt-12 flex md:w-4/12 w-7/12 m-auto mb-5">
@@ -505,42 +594,49 @@
     <script src="../static/js/custom.js"></script>
 
     <script>
-     
-     var i = 0
-      var addnewprojbtns = document.querySelectorAll(".btn-add-new");
+    
+      var add_new_data_btns = document.querySelectorAll(".btn-add-new");
 
-      for (const addnewprojbtn of addnewprojbtns) {
+      for (const add_new_data_btn of add_new_data_btns) {
+        // var i = 0
 
-      addnewprojbtn.addEventListener("click", function (e) {
+      add_new_data_btn.addEventListener("click", function (e) {
         e.preventDefault();
 
-        var newInnerHtml = e.target.parentElement.parentElement.children[2].children[0].innerHTML
+        var newInnerHtml = e.target.parentElement.parentElement.children[2].children[0].children[0].innerHTML
         var newNode = document.createElement("div");
-
-        // var hrnode = document.createElement('hr')
         var wrapperforprojects =  e.target.parentElement.parentElement.children[2].children[0]
-        console.log(e.target.parentElement.parentElement.children[2].children[0])
 
-        // hrnode.setAttribute('class', 'mt-10')
         
-      //   var  d = addnewprojbtn.parentElement.parentElement.children[2].children[0].children[0].querySelectorAll('input')
         
-      // var d =  wrapperforprojects.children[0].querySelectorAll('input')
-        // i = Number(i) + 1
+        var inputs = e.target.parentElement.parentElement.children[2].children[0].children[0].querySelectorAll('.input')
+        
+        var app = 2
 
-      // for (const iterator of d) {
-      //   iterator.setAttribute('name', iterator.getAttribute('name') + Number(i) )
-      //   console.log(iterator)
-      // }
+        for (let am = 0; am < wrapperforprojects.children.length; am++) {
+          
+          for (let i = 0; i < wrapperforprojects.children[0].children.length; i++) {
 
+           var col = wrapperforprojects.children[0].children[i].children[0].dataset.inputname + app
 
-      // wrapperforprojects.appendChild(hrnode)
+          wrapperforprojects.children[0].children[i].children[0].name = col
+        }
+
+        app++
+
+        }
+        
+        var fieldswrapper = wrapperforprojects.children[0]
         newNode.innerHTML = newInnerHtml
+
+        newNode.className = "fields-wrapper mt-8 flex flex-wrap contact-info"
+        newNode.setAttribute('style', 'row-gap: 1em')
         wrapperforprojects.appendChild(newNode);
-        
     });
 
-      };
+      }
     </script>
+
+
   </body>
 </html>

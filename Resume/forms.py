@@ -1,12 +1,31 @@
 from .models import User
-from django import forms
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
-class UserSignUpForm(forms.ModelForm):
+from django import forms
+class UserSignUpForm(UserCreationForm):
    
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ('first_name', 'last_name', 'email', 'username', 'password')
 
+    def __init__(self, *args, **kwargs):
+        super(UserSignUpForm, self).__init__(*args, **kwargs)
+        self.fields.pop('password')
+        
+        for field in self.fields.values(): 
+            field.widget.attrs['class'] = "flex-1 pl-4"
+        
+
+class AuthLoginForm(AuthenticationForm):
+    
+    email = forms.CharField(widget= forms.TextInput(attrs={"class": "flex-1"}))
+    password = forms.CharField(widget= forms.PasswordInput(attrs= {"class": 'flex-1'}))
+
+    
+    def __init__(self, *args, **kwargs):
+        super(AuthLoginForm, self).__init__(*args, **kwargs)
+        self.fields.pop('username')
+    
 
 class UserSignInForm(forms.ModelForm):
     class Meta:

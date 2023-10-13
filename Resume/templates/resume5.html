@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Right Resume</title>
+    <title>{{request.user.firstname}} {{request.user.lastname}}'s Resume</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" media="print" onload="this.media='all'"/>
@@ -29,7 +29,8 @@
     <header class="d-print-none">
       <div class="container text-center text-lg-left">
         <div class="py-3 clearfix">
-          <h1 class="site-title mb-0">Joyce Harrison</h1>
+          <h1 class="site-title mb-0">{{request.session.user_data.firstname}} {{request.session.user_data.lastname}}
+          </h1>
           <div class="site-nav">
             <nav role="navigation">
               <ul class="nav justify-content-center">
@@ -56,7 +57,7 @@
         <div class="avatar hover-effect bg-white shadow-sm p-1"><img src="{% static 'images/avatar.jpg' %}" width="200" height="200"/></div>
       </div>
       <div class="col-lg-8 col-md-7 text-center text-md-start">
-        <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">Joyce Harrison</h2>
+        <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">{{request.session.user_data.firstname}} {{request.session.user_data.lastname}}</h2>
         <p data-aos="fade-left" data-aos-delay="100">Graphic Designer & Web Developer</p>
         <div class="d-print-none" data-aos="fade-left" data-aos-delay="200"><a class="btn btn-light text-dark shadow-sm mt-1 me-1" href="#" target="_blank">Download CV</a><a class="btn btn-success shadow-sm mt-1" href="#contact">Hire Me</a></div>
       </div>
@@ -66,7 +67,7 @@
     <div class="row">
       <div class="col-md-6">
         <h2 class="h3 mb-3">About Me</h2>
-        <p>Hello! I’m Joyce Harrison. I am passionate about UI/UX design and Web Design. I am a skilled Front-end Developer and master of Graphic Design tools such as Photoshop and Sketch.</p>
+        <p>{{request.session.user_data.aboutyou}}</p>
       </div>
       <div class="col-md-5 offset-md-1">
         <div class="row mt-2">
@@ -80,19 +81,19 @@
             <div class="pb-1">Email</div>
           </div>
           <div class="col-sm-8">
-            <div class="pb-1 text-secondary">Joyce@company.com</div>
+            <div class="pb-1 text-secondary">{{request.session.user_data.email}}</div>
           </div>
           <div class="col-sm-4">
             <div class="pb-1">Phone</div>
           </div>
           <div class="col-sm-8">
-            <div class="pb-1 text-secondary">+0718-111-0011</div>
+            <div class="pb-1 text-secondary">{{request.session.user_data.phonenumber}}</div>
           </div>
           <div class="col-sm-4">
             <div class="pb-1">Address</div>
           </div>
           <div class="col-sm-8">
-            <div class="pb-1 text-secondary">140, City Center, New York, U.S.A</div>
+            <div class="pb-1 text-secondary">{{request.session.user_data.res_address}}</div>
           </div>
         </div>
       </div>

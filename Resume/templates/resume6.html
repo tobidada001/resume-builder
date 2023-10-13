@@ -1,12 +1,36 @@
 {% load static %}
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
 <head>
      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="{% static 'resume6.css' %}">
-     <title>One Page Resume</title>
+     <title>{{request.user.first_name}} {{request.user.last_name}} | Resume</title>
+
+
+     <style>
+        * { margin: 0; padding: 0; }
+        body { font: 20px Helvetica, Sans-Serif; line-height: 24px; background: url(images/noise.jpg); }
+        .clear { clear: both; }
+        #page-wrap { width: 70%; margin: 40px auto 60px; }
+        #pic { float: right; margin: -30px 0 0 0; }
+        h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
+        h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
+        h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
+        p { margin: 0 0 16px 0; }
+        a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
+        a:hover { border-bottom-style: solid; color: black; }
+        ul { margin: 0 0 32px 17px; }
+        #objective { width: 500px; float: left; }
+        #objective p { font-family: Georgia, Serif; font-style: italic; color: #666; }
+        dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
+        dd { width: 80%; float: right; }
+        dd.clear { float: none; margin: 0; height: 15px; }
+
+     </style>
+
+
+
+
 </head>
 
 <body>
@@ -19,20 +43,16 @@
         
             <!-- Microformats! -->
         
-            <h1 class="fn">C'thulhu</h1>
+            <h1 class="fn">{{request.user.first_name}} {{request.user.last_name}}</h1>
         
             <p>
-                Cell: <span class="tel">555-666-7777</span><br />
-                Email: <a class="email" href="mailto:greatoldone@lovecraft.com">greatoldone@lovecraft.com</a>
+                Cell: <span class="tel">{{profile.phone}}</span><br />
+                Email: <a class="email" href="mailto:greatoldone@lovecraft.com">{{request.user.email}}</a>
             </p>
         </div>
                 
         <div id="objective">
-            <p>
-                I am an outgoing and energetic (ask anybody) young professional, seeking a 
-                career that fits my professional skills, personality, and murderous tendencies. 
-                My squid-like head is a masterful problem solver and inspires fear in who gaze upon it. 
-                I can bring world domination to your organization. 
+            <p>{{profile.profile_summary}}
             </p>
         </div>
         
@@ -42,40 +62,47 @@
             <dd class="clear"></dd>
             
             <dt>Education</dt>
+            
+            {% for education in profile.education_set.all %}
             <dd>
-                <h2>Withering Madness University - Planet Vhoorl</h2>
+                <h2>{{education.degree}}, {{education.institution}} - Planet Vhoorl</h2>
                 <p><strong>Major:</strong> Public Relations<br />
-                   <strong>Minor:</strong> Scale Tending</p>
+                    <strong>From: </strong>{{education.started_from}}
+                    <br>
+                    <strong>To: </strong> {{education.stopped_at}}
+                   </p>
             </dd>
+            {% endfor %}
+                
+          
+          
             
             <dd class="clear"></dd>
             
             <dt>Skills</dt>
             <dd>
-                <h2>Office skills</h2>
-                <p>Office and records management, database administration, event organization, customer support, travel coordination</p>
-                
-                <h2>Computer skills</h2>
-                <p>Microsoft productivity software (Word, Excel, etc), Adobe Creative Suite, Windows</p>
-            </dd>
+            {% for skill in profile.skill_set.all %}
+            
+                <strong>{{skill.skill}},</strong>
+            
+            {% endfor %}
+        </dd>
+
+            
             
             <dd class="clear"></dd>
             
             <dt>Experience</dt>
             <dd>
-                <h2>Doomsday Cult <span>Leader/Overlord - Baton Rogue, LA - 1926-2010</span></h2>
-                <ul>
-                    <li>Inspired and won highest peasant death competition among servants</li>
-                    <li>Helped coordinate managers to grow cult following</li>
-                    <li>Provided untimely deaths to all who opposed</li>
-                </ul>
                 
-                <h2>The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>
-                <ul>
-                    <li>Worked on grass-roots promotional campaigns</li>
-                    <li>Reduced theft and property damage percentages</li>
-                    <li>Janitorial work, Laundry</li>
-                </ul> 
+                {% for experience in profile.workexperience_set.all %}
+                    
+               
+                <h2>{{experience.company}} <span>{{experience.job_title}}  - {{experience.started_from}}-{{experience.stopped_at}}</span></h2>
+               <p>{{experience.achievement}}</p> <br>
+
+                {% endfor %}
+               
             </dd>
             
             <dd class="clear"></dd>
@@ -86,8 +113,19 @@
             <dd class="clear"></dd>
             
             <dt>References</dt>
-            <dd>Available on request</dd>
             
+           
+            <dd>
+                {% for ref in profile.reference_set.all %}
+                <span><b>{{ref.name}}</b></span> <br>
+            <span>{{ref.contact_info}}</span><br><br><br>
+
+            {% endfor %}
+        
+        </dd>
+
+           
+         
             <dd class="clear"></dd>
         </dl>
         
